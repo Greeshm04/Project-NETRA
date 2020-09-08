@@ -1,0 +1,15 @@
+body{
+  margin: 0;
+  font: normal 16px Arial, Helvertica, sand-serif;
+  color: #333;
+}
+#particles-js{
+  background-color: #16132e;
+}
+#login{
+  opacity: 1.0;
+  padding: 2em;
+  position: absolute;
+  left:10px;
+
+}

@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+
+
+    <div class="content-wrapper">
+      <div id="loading"></div>
+
+      <!-- Main content -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Feature Extraction</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active"><a href="#">fea_ext</a></li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+      <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+          <div class="card-header">
+  
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fas fa-minus"></i></button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                <i class="fas fa-times"></i></button>
+            </div>
+          </div>
+          <div class="card-body" style="">
+            <!-- <button type="button" name="check_sentiments" id="check_sentiments"  onclick="">Check Sentiments</button> -->
+
+            <div class="row">
+              <div class="fImageContainer" id="fImageContainer">
+
+              </div>
+          
+              
+
+            </div>
+          
+            
+            
+            <form role="form" id="quickForm" action="{% url 'feature_extraction' %}" method = "POST" enctype="multipart/form-data">
+
+
+
+              <div>
+                {% csrf_token %}
+              <input type="file" name="fmyfile" accept="image/*" multiple id="finputfile"/>
+               
+              <div style="padding-top : 20px;">
+                <input type="submit" class="btn btn-primary" onclick="loaderdispaly(event)" value="Extract_features" />
+
+              </div>
+
+              </div>
+            </form>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+  
+      </section>
+      <!-- /.content -->
+      <!-- /.content -->
+
+    </div>
+    <!-- /.content-wrapper -->
+    <script>
+      var preloader = document.getElementById("loading");
+
+  function myFunction() {
+    preloader.style.display = 'none';
+  };
+
+  function loaderdispaly(e) {
+    preloader.style.display = 'block';
+    // setTimeout(()=>{preloader.style.display='none';},);
+  };
+
+  
+        document.getElementById("finputfile").addEventListener('change', (event) => {
+            var v=document.getElementById("finputfile").files;
+            console.log(v);
+      
+            document.getElementById("fImageContainer").innerHTML = "";
+            for(i=0;i<v.length;i++){
+      
+                var img=document.createElement("img");
+                img.src=URL.createObjectURL(v[i]);
+      
+                img.style.width="640px";
+                img.style.padding="7px 3px 7px 3px";
+                img.style.height="360px";
+      
+                document.getElementById("fImageContainer").appendChild(img);
+            }
+        });
+
+    </script>
+    
+ 
+    {% endblock %}

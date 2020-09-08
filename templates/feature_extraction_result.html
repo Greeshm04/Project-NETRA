@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/load.css' %}">
+
+
+
+
+<div class="content-wrapper">
+
+  <!-- Main content -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Feature Extraction ( Segmentation )</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active"><a href="#">feature_extraction_result</a></li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+  <section class="content">
+
+    <!-- Default box -->
+    <div class="card" style="height: 650px;">
+      <div class="card-header">
+        <h3 class="card-title">Output</h3>
+        <div class="card-tools">
+            <ul class="nav nav-pills ml-auto">
+              <li class="nav-item" style="padding-right: 10px;">
+                <a class="nav-link active" href="#" data-toggle="tab" style="background-color: cornflowerblue;">Water</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#" data-toggle="tab"  style="background-color:gold;">Buildings</a>
+              </li>
+            </ul>
+        
+        </div>
+      </div>
+      <div class="card-body" style="height: 500px;">
+
+        <!-- <button type="button" name="check_sentiments" id="check_sentiments"  onclick="">Check Sentiments</button> -->
+        <div class="row mb-3">
+
+
+          <!-- <h1>sdbausgdbuhbshdfjaksdnkasndnaskjndasndjasnkdna {{ MEDIA_URL }}</h1> -->
+
+            <img src="/media/feOutput.png" alt="" width="780" height="570">
+        </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+  </section>
+  <!-- /.content -->
+  <!-- /.content -->
+
+</div>
+	<style>
+		/* This only works with JavaScript, 
+		   if it's not present, don't show loader */
+		.no-js #loader { display: none;  }
+		.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+	</style>
+	
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+	
+	
+	<script src="https://github.com/Modernizr/Modernizr/raw/master/modernizr.js"></script>
+	<script>
+		// Wait for window load
+		$(window).load(function() {
+			// Animate loader off screen
+			$("#loader").animate({
+				top: -200
+			}, 1500);
+		});
+	</script>	
+<script>
+    var preloader = document.getElementById("loading");
+    function myFunction(){
+      preloader.style.display = 'none';
+    };
+</script>
+<!-- /.content-wrapper -->
+
+{% endblock %}

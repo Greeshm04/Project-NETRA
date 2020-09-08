@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+
+<div class="content-wrapper">
+  <div id="loading"></div>
+
+  <!-- Main content -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Time Wise Change Detection</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active"><a href="#">Change_Det</a></li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+  <section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+          Before Image
+        </h3>
+        <h3 class="card-title" style="padding-left: 700px;">
+          After Image
+        </h3>
+        
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+            <i class="fas fa-minus"></i></button>
+          <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+            <i class="fas fa-times"></i></button>
+        </div>
+      </div>
+      <div class="card-body" >
+        <!-- <button type="button" name="check_sentiments" id="check_sentiments"  onclick="">Check Sentiments</button> -->
+        <div class="row mb-3">
+
+          <div class="col-sm-6">
+            <div class="ImageContainer" id="ImageContainer">
+                <img id="imageToSwap"  width="600px" height="340px" />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="ImageContainer2" id="ImageContainer2">
+                <img id="imageToSwap2"  width="600px" height="340px" />
+
+            </div>
+
+
+          </div>
+        </div>
+
+
+        <form role="form" id="quickForm" action="{% url 'change_detection2'%}" method="GET"
+          enctype="multipart/form-data"> 
+
+
+          <div>
+            {% csrf_token %}
+            <div class="row mb-3">
+                <div class="col-sm-6">
+
+                <div class="form-group">
+                    <label>Select Any Image:</label>
+                    <select class="form-control select2 select2-danger"  name="inputfile" id="inputfile" onChange="swapImage()" data-dropdown-css-class="select2-danger" style="width: 78%;">
+                      <option name="1" value="2.jpg" selected>Select Image 1</option>
+                      <option name="1b" value="2002.jpg">2016</option>
+                      <option name="2b" value="2012.jpg">2017</option>
+                      <option name="3b" value="2015.jpg" >2018</option>
+                      <option name="4b" value="2017.jpg">2019</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+
+                  <div class="form-group" >
+                    <label>Select Any Image:</label>
+                    <select class="form-control select2 select2-danger" name="inputfile2" id="inputfile2" onChange="swapImage2()" data-dropdown-css-class="select2-danger" style="width: 78%;">
+                        <option name="1" value="2.jpg" selected>Select Image 2</option>
+                        <option name="1a" value="2002.jpg">2016</option>
+                        <option name="2a" value="2012.jpg">2017</option>
+                        <option name="3a" value="2015.jpg">2018</option>
+                        <option name="4a" value="2017.jpg">2019</option>
+                    </select>
+                  </div>
+                  </div>
+            </div>
+            <div style="padding-top : 20px;">
+              <input type="submit" class="btn btn-primary" onclick="loaderdispaly(event)" id="time_det1"
+                value="Detect Change" />
+            </div>
+
+          </div>
+        </form>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+<script>
+  var preloader = document.getElementById("loading");
+
+  function myFunction() {
+    preloader.style.display = 'none';
+  };
+
+  function loaderdispaly(e) {
+    preloader.style.display = 'block';
+    // setTimeout(()=>{preloader.style.display='none';},);
+  };
+
+    function swapImage(){
+        var image = document.getElementById("imageToSwap");
+        var dropd = document.getElementById("inputfile");
+        image.src = "/media/time/"+dropd.value;	
+    };
+
+    function swapImage2(){
+        var image2 = document.getElementById("imageToSwap2");
+        var dropd2 = document.getElementById("inputfile2");
+        image2.src = "/media/time/"+dropd2.value;	
+    };
+</script>
+
+
+{% endblock %}
