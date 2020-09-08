@@ -92,41 +92,41 @@ def change_detection(request):
 def feature_extraction(request):
 
     
-        # for file in request.FILES.getlist('fmyfile'):
-        #         fs = FileSystemStorage()
-        #         filename = fs.save(file.name, file)
-        #         print("##3444",filename)
+        for file in request.FILES.getlist('fmyfile'):
+                fs = FileSystemStorage()
+                filename = fs.save(file.name, file)
+                print("##3444",filename)
 
-        # start = time.time()
-        # responsez = str(base64.b64encode(open('media/'+filename,'rb').read()))
-        # responsez=responsez[2:]
-        # data = {"imageUrl":responsez, "mode": "1"}
-        # #ip address of azure-VM instance
-        # app_url = "http://13.68.181.120:5000/app/score-image"
-        # response = requests.post(app_url, json={"imageUrl":responsez, "mode": "1"})
+        start = time.time()
+        responsez = str(base64.b64encode(open('media/'+filename,'rb').read()))
+        responsez=responsez[2:]
+        data = {"imageUrl":responsez, "mode": "1"}
+        #ip address of azure-VM instance
+        app_url = "http://13.68.181.120:5000/app/score-image"
+        response = requests.post(app_url, json={"imageUrl":responsez, "mode": "1"})
         
-        # img=response.json()
-        # img=img[2:]
-        # fh =open('media/mohit.jpg',mode='wb')
-        # fh.write(base64.b64decode(img))
-        # end = time.time()
-        # print('Time Required:'+str(end - start))
-        # base_image = Image.open('media/mohit.jpg')
-        # base_image.show()
+        img=response.json()
+        img=img[2:]
+        fh =open('media/mohit.jpg',mode='wb')
+        fh.write(base64.b64decode(img))
+        end = time.time()
+        print('Time Required:'+str(end - start))
+        base_image = Image.open('media/mohit.jpg')
+        base_image.show()
         
-        # wi,hi=base_image.size
-        # if wi >=1920:
-        #   w=600
-        #   h=340
-        # else:
-        #   w=wi
-        #   h=hi
-        # i3 = change_d()
-        # i3.img='mohit.jpg'
+        wi,hi=base_image.size
+        if wi >=1920:
+          w=600
+          h=340
+        else:
+          w=wi
+          h=hi
+        i3 = change_d()
+        i3.img='mohit.jpg'
 
         
     
-        return render(request,"feature_extraction_result.html")
+        return render(request,"feature_extraction_result.html",{'i3':i3,'w':w,'h':h})
         
 
 def feature_extraction2(request):
