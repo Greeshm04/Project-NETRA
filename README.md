@@ -44,3 +44,8 @@ The Main Work is to Detect Change and Extract Features from given Satellite imag
 | CPU      | ~ 13 Seconds | ~ 12 Seconds |
 | Local GPU      | ~ 13 Seconds      |   ~ 1 Seconds |
 | Cloud GPU | -      |    ~ 7 Seconds |
+
+
+## Sample Output
+Befor Image
+
