@@ -77,5 +77,3 @@ Result :
 
 <img src="https://user-images.githubusercontent.com/32408194/92440591-5df13c80-f1ca-11ea-9d77-f4065d0d4700.png" width=680 height=470/>
 
-#### Check /Output Directory For More Results
-
