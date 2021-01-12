@@ -47,16 +47,19 @@ The Main Work is to Detect Change and Extract Features from given Satellite imag
 
 
 ## Sample Output
-Before | After Image
+Before Image
 
-<img src="https://user-images.githubusercontent.com/32408194/92439463-84ae7380-f1c8-11ea-93de-15ec691d8798.jpg" width=680 height=470/>         
+<img src="https://user-images.githubusercontent.com/32408194/92439463-84ae7380-f1c8-11ea-93de-15ec691d8798.jpg" width=680 height=470/>    
+
+After Image
+
 <img src="https://user-images.githubusercontent.com/32408194/92439466-85dfa080-f1c8-11ea-96c6-fc2323b157e3.jpg" width=680 height=470/>
 
-#### Change Detection :
+#### Change Detection : (Red Part)
 
 <img src="https://user-images.githubusercontent.com/32408194/92439469-8841fa80-f1c8-11ea-89f2-e643df1fb6b3.png" width=680 height=470/>
 
-Feature Detection From Changed Area :
+#### Feature Detection From Changed Area :
 
 * Blue Shade = Water
 
