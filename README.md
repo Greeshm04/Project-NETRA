@@ -1,19 +1,19 @@
 # Project Netra 
 
-Project NETRA is Targeting Satellite Imaginary .
+Project NETRA is a System Developed for Satellite Imaginary Image Processing.
 The Main Work is to Detect Change and Extract Features from given Satellite imaginary.
 
 ## Change Detection
 
-* Used Computer Vision Techniques and own Image Pre-Processing Techniques for Better Results.
-* We are getting change from each pixel.
-* For Image Pre Processing and clearing noise we have used 20x20 Pixel Matrix and Clearing Changes which are below 20% for better accuracy. 
+* Used Computer Vision AI and own Image Pre-Processing Techniques for Better Results.
+* We are getting change from each pixel (Comparing each pixel of Both Images).
+* For Image Pre-Processing and clearing the noise, we have used 20x20 Pixel Matrix and it Clears Changes that are below 20% Match, for better accuracy. 
 
 ## Feature Extraction
 
-* Used Mask RCNN Weights Provided by Detectron2 (a Facebook’s Open Source Platform for Develop further).
+* Used Mask RCNN Weights Provided by Detectron2 (Facebook’s Open Source AI Platform for Developers).
 * We have made our Custom Polygon Dataset of Satellite Imaginary from Google Earth.
-* We have Trained 19+ Models out of which we have selected one Model in which we are getting 90+ accuracy.
+* We have Trained 19+ Models out of we have selected one Model in which we are getting 90+ accuracy.
 
 ## Object Detection Model Structure:
 
